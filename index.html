@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard cuaca dan radar lokal.">
+
+    <title>Cuaca &amp; Radar</title>
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <a class="brand" href="#">
+                <i class="ph-fill ph-cloud-sun"></i>
+                <span>cuaca<span class="brand-dot">.</span></span>
+            </a>
+
+            <p class="nav-title">MENU</p>
+
+            <nav class="navigation" aria-label="Navigasi utama">
+                <a class="nav-link active" href="#overview" aria-label="Overview" aria-current="page">
+                    <i class="ph ph-squares-four" aria-hidden="true"></i>
+                    <span>Overview</span>
+                </a>
+                <a class="nav-link" href="#forecast" aria-label="Prakiraan">
+                    <i class="ph ph-cloud-sun" aria-hidden="true"></i>
+                    <span>Prakiraan</span>
+                </a>
+                <a class="nav-link" href="#radar" aria-label="Radar cuaca">
+                    <i class="ph ph-radar" aria-hidden="true"></i>
+                    <span>Radar cuaca</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-note">
+                <h2>Cuaca lebih dekat</h2>
+                <p>Pantau kondisi cuaca di kota favoritmu</p>
+
+            </div>
+        </aside>
+
+        <main class="main-content" id="overview">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow" id="current-date">Memuat tanggal...</p>
+                    <h1 id="greeting">Memuat cuaca...</h1>
+                </div>
+
+                <form class="search-box" id="city-search-form" role="search">
+                    <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+                    <input id="city-search" type="search" placeholder="Cari kota..." aria-label="Cari kota" autocomplete="off">
+                    <button type="submit" aria-label="Cari kota"><i class="ph ph-arrow-right"></i></button>
+                </form>
+            </header>
+
+            <p class="app-status" id="app-status" role="status" aria-live="polite"></p>
+
+            <section class="top-grid" aria-label="Ringkasan cuaca">
+                <article class="panel current-weather">
+                    <p class="eyebrow">LOKASI SAAT INI</p>
+                    <h2><span id="city-name">Banjarbaru</span> <span class="muted" id="country-name">Indonesia</span></h2>
+                    <p class="subtext" id="updated-at">Memuat data cuaca...</p>
+
+                    <div class="weather-main">
+                        <div>
+                            <p class="temperature" id="temperature">--°</p>
+                            <p class="condition" id="condition">Memuat kondisi...</p>
+                            <p class="subtext" id="feels-like">Terasa seperti --°</p>
+                        </div>
+                        <i class="ph-fill ph-cloud-sun weather-icon" id="weather-icon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="weather-stats">
+                        <div class="stat">
+                            <i class="ph ph-drop"></i>
+                            <span>Kelembapan<strong id="humidity">--%</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="ph ph-wind"></i>
+                            <span>Kecepatan angin<strong id="wind-speed">-- km/j</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="ph ph-sun"></i>
+                            <span>Indeks UV<strong id="uv-index">--</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="ph ph-eye"></i>
+                            <span>Jarak pandang<strong id="visibility">-- km</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="panel radar-card" id="radar">
+                    <p class="eyebrow">PANTAU LANGIT</p>
+                    <h2>Radar cuaca</h2>
+
+                    <div class="radar-map" id="radar-map" role="application" aria-label="Peta radar hujan"></div>
+
+                    <p class="radar-status">
+                        <span class="status-dot"></span>
+                        <span id="radar-status-text">Memuat radar...</span>
+                    </p>
+                    <p class="radar-source">Radar: <a href="https://www.rainviewer.com/" target="_blank" rel="noreferrer">RainViewer</a> · Peta: © OpenStreetMap</p>
+                </article>
+            </section>
+
+            <section class="panel forecast-panel" id="forecast">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">PRAKIRAAN HARI INI</p>
+                        <h2>Cuaca per jam</h2>
+                    </div>
+                    <a class="text-link" href="#weekly">Lihat 7 hari</a>
+                </div>
+
+                <div class="hourly-list">
+                    <div class="hour">
+                        <span>Sekarang</span>
+                        <i class="ph-fill ph-cloud-sun"></i>
+                        <strong>--°</strong>
+                        <small>--% hujan</small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel weekly-panel" id="weekly">
+                <p class="eyebrow">RINGKASAN MINGGU INI</p>
+                <h2>7 hari ke depan</h2>
+
+                <div class="weekly-list" id="weekly-list" aria-live="polite"></div>
+            </section>
+
+            <footer class="footer">
+                <span>© <span id="footer-year"></span> Cuaca</span>
+                <span>Cuaca: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></span>
+            </footer>
+        </main>
+
+    </div>
+</body>
+</html>
