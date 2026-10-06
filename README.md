@@ -19,7 +19,7 @@ Sebuah *dashboard* pemantau cuaca dan curah hujan interaktif yang dibangun mengg
 
 ## 🚀 Cara Menjalankan Project (Live Demo)
 Aplikasi ini dapat diakses langsung tanpa perlu instalasi lokal.
-🔗 **[Kunjungi Live Demo Di Sini](Masukkan-Link-GitHub-Pages-Anda-Nanti-Di-Sini)**
+🔗 **[Kunjungi Live Demo Di Sini](https://sukmaramdani099-sys.github.io/weather-radar-app/)**
 
 ---
 *Dibuat oleh Sukma Ramdhani - Sebagai portofolio pengembangan Frontend Web.*
