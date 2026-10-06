@@ -2,7 +2,7 @@
 
 Sebuah *dashboard* pemantau cuaca dan curah hujan interaktif yang dibangun menggunakan Vanilla JavaScript. Aplikasi ini menyajikan data cuaca *real-time*, prakiraan per jam, hingga peta radar awan hujan yang beroperasi secara langsung.
 
-![Weather App Preview]((https://github.com/sukmaramdani099-sys/weather-radar-app/blob/main/Screenshot%202026-10-07%20073855.png?raw=true))
+![Weather App Preview](https://github.com/sukmaramdani099-sys/weather-radar-app/blob/main/Screenshot%202026-10-07%20073855.png?raw=true)
 
 ## ✨ Fitur Utama
 * **🌍 Pencarian Lokasi Global:** Mendukung pencarian presisi menggunakan *Geocoding API*.
